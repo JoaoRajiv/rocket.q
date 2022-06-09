@@ -18,6 +18,15 @@ deleteButton.forEach(button => {
     button.addEventListener("click", (event) => handleClick(event, false))
 })
 
+const copyId = document.getElementById("room-id");
+console.log(copyId.innerText)
+
+copyId.addEventListener('click', e => idCopy())
+
+function idCopy(){
+    navigator.clipboard.writeText(copyId.innerText.slice(-6, 7))
+}
+
 function handleClick (e, check = true) {
     e.preventDefault()
     const text = check ? "Marcar como lida" : "Excluir"
